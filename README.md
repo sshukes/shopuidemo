@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UI library comparison (Next.js + Tailwind)
 
-## Getting Started
+This Next.js (App Router) app compares three popular React UI options—**shadcn/ui**, **Chakra UI**, and **MUI**—inside a Tailwind CSS project. Each library has its own demo route with a mini-dashboard layout.
 
-First, run the development server:
+## Project structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+app/
+  page.tsx           # Landing page
+  layout.tsx         # Shared layout + top nav
+  ui/
+    shadcn/page.tsx  # shadcn/ui demo
+    chakra/page.tsx  # Chakra-inspired demo
+    mui/page.tsx     # MUI-inspired demo
+components/
+  top-nav.tsx        # Global navigation
+public/
+  ...                # Static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Commands
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# install dependencies
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# start dev server
+npm run dev
 
-## Learn More
+# lint
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+If you are online and want the official UI packages, install them with:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion @mui/material @mui/icons-material @radix-ui/react-dialog class-variance-authority clsx tailwind-merge
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Routes
 
-## Deploy on Vercel
+- `/` – Overview with links
+- `/ui/shadcn` – Tailwind-first shadcn/ui-styled demo
+- `/ui/chakra` – Chakra-inspired demo
+- `/ui/mui` – MUI-inspired demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Each page includes a header, primary/secondary buttons, cards, a table, a simple form, and a dialog example.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Comparison + recommendation
+
+See [`docs/ui-evaluation.md`](docs/ui-evaluation.md) for installation steps, comparison notes, and the recommended default library (Chakra UI for this demo).
+
+## AWS Amplify
+
+Amplify auto-detects this as a Next.js app. Key commands:
+
+```bash
+npm ci    # or npm install
+npm run build
+```
+
+For a full walkthrough (connecting GitHub, sample `amplify.yml`, Node version pinning, env vars, and smoke checks), see [`docs/aws-amplify.md`](docs/aws-amplify.md).
