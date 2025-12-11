@@ -52,4 +52,11 @@ See [`docs/ui-evaluation.md`](docs/ui-evaluation.md) for installation steps, com
 
 ## AWS Amplify
 
-Builds with the standard commands (`npm install` → `npm run build` → `npm start`). No additional configuration is required for Amplify defaults.
+Amplify auto-detects this as a Next.js app. Key commands:
+
+```bash
+npm ci    # or npm install
+npm run build
+```
+
+For a full walkthrough (connecting GitHub, sample `amplify.yml`, Node version pinning, env vars, and smoke checks), see [`docs/aws-amplify.md`](docs/aws-amplify.md).
